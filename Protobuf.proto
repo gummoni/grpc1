@@ -1,0 +1,24 @@
+﻿syntax = "proto3";
+
+service Greeter {
+	rpc SayHello (HelloRequest) returns (HelloReply);
+	rpc SayHellos (HelloRequest) returns (stream HelloReply);
+	rpc IncrementCount (stream CounterRequest) returns (CounterReply);
+	rpc Memory (stream CounterRequest) returns (stream CounterReply);
+}
+
+message HelloRequest {
+	string name = 1;
+}
+
+message HelloReply {
+	string message = 1;
+}
+
+message CounterRequest {
+	int32 count = 1;
+}
+
+message CounterReply {
+	int32 count = 1;
+}
